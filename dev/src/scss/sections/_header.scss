@@ -1,0 +1,87 @@
+@use "../tools" as *;
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: var(--color-light-card);
+	padding: 10px 0;
+	.admin-bar & {
+		top: var(--wp-admin--admin-bar--height);
+	}
+	& ~ .main {
+		margin-top: var(--header-height);
+	}
+	&__container {
+		display: flex;
+		gap: adapt(30, 24, $tablet, $laptop);
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		flex-shrink: 0;
+	}
+
+	&__menu {
+		width: 100%;
+	}
+
+	&__phone {
+		@include text-body-m;
+		flex-shrink: 0;
+		color: var(--color-accent);
+
+		@include media($tablet) {
+			@include title-4;
+			color: var(--color-accent);
+		}
+	}
+
+	&__btn {
+		flex-shrink: 0;
+		@include media($tablet, min) {
+			max-width: unset;
+			width: unset;
+			padding-inline: 40px;
+		}
+	}
+
+	&__burger-btn {
+	}
+}
+.header-menu {
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		gap: adapt(30, 24, $tablet, $laptop);
+		justify-content: space-between;
+
+		@include media($tablet) {
+			flex-direction: column;
+			gap: 34px;
+		}
+	}
+
+	&__main-menu {
+		flex: 1;
+
+		@include media($tablet) {
+			width: 100%;
+		}
+	}
+
+	&__box {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		gap: adapt(30, 24, $tablet, $laptop);
+		@include media($tablet) {
+			width: 100%;
+			flex-direction: column;
+			gap: 34px;
+			align-items: start;
+		}
+	}
+}

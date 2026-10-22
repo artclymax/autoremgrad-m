@@ -1,0 +1,77 @@
+@use "../tools" as *;
+
+.upcase {
+	text-transform: uppercase;
+}
+.t-center {
+	text-align: center !important;
+}
+
+
+.title-1 {
+	@include media($laptop-sm, min) {
+		@include title-1;
+	}
+	@include media($laptop-sm) {
+		@include title-1-mob;
+	}
+}
+.title-2 {
+	@include media($laptop-sm, min) {
+		@include title-2;
+	}
+	@include media($laptop-sm) {
+		@include title-2-mob;
+	}
+}
+
+.title-3 {
+	@include media($laptop-sm, min) {
+		@include title-3;
+	}
+	@include media($laptop-sm) {
+		@include title-4-mob;
+	}
+}
+
+.title-4 {
+	@include media($laptop-sm, min) {
+		@include title-4;
+	}
+
+	@include media($laptop-sm) {
+		@include title-4-mob;
+	}
+}
+
+.label {
+	color: var(--color-accent);
+	@include media($laptop-sm, min) {
+		@include text-label;
+	}
+	@include media($laptop-sm) {
+		@include text-label-mob;
+	}
+}
+
+.section-content {
+	h1 {
+		@extend .title-1;
+	}
+	h2 {
+		@extend .title-2;
+	}
+	h3 {
+		@extend .title-3;
+	}
+	h3 {
+		@extend .title-4;
+	}
+	
+}
+
+.section-descr-width {
+	p {
+		max-width: 800px;
+	}
+}

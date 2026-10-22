@@ -1,0 +1,95 @@
+@use "../tools" as *;
+
+.home-hero {
+	&__container {
+		--width: #{adapt(792, 360, $mobile, $laptop)};
+		--gap: 20px;
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 20px;
+
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: adapt(40, 24);
+		align-items: start;
+		@include media($tablet) {
+			padding-top: 24px;
+		}
+	}
+
+	&__text-wrapper {
+		@include flex-column;
+		gap: adapt(20, 16);
+	}
+
+	&__label {
+	}
+
+	&__title {
+		@include media($tablet) {
+			@include title-1-mob;
+		}
+	}
+
+	&__descr {
+	}
+
+	&__btn {
+	}
+
+	&__services {
+		height: 100%;
+		@include flex-column;
+		@include media($tablet, min) {
+			border-left: 1px solid var(--color-dark-section);
+		}
+	}
+
+	&__services-item {
+		flex: 1;
+		border-bottom: 1px solid var(--color-dark-section);
+
+		@include media($tablet, min) {
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+	}
+
+	&__image {
+		--object-pos: top;
+
+		min-height: adapt(826, 360, $mobile);
+	}
+}
+.hero-services-item {
+	@include reset-link;
+	flex-direction: column;
+	gap: adapt(40, 12, $finishBreakpoint, $laptop);
+	padding: 20px;
+	justify-content: center;
+	@include media($tablet) {
+		padding: 16px 0;
+	}
+	&__link-text {
+		@include text-label;
+		display: flex;
+		justify-content: space-between;
+
+		@include media($mobile) {
+			@include text-label-mob;
+		}
+	}
+
+	&__title {
+	}
+}
