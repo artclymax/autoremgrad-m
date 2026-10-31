@@ -1,0 +1,106 @@
+@use "../tools" as *;
+
+.faq {
+	position: relative;
+	z-index: 1;
+
+	&__container {
+		display: grid;
+		grid-template-columns: 0.75fr 1fr;
+		align-items: start;
+		gap: 24px 20px;
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__left {
+		@include flex-column;
+		align-items: start;
+		gap: adapt(40, 24);
+		height: 100%;
+
+		@include media($mobile, min) {
+			min-height: adapt(600, 300, $tablet);
+			padding-right: adapt(35, 10, $tablet);
+			border-right: 1px solid var(--color-dark-section);
+		}
+	}
+
+	&__link {
+	}
+
+	&__right {
+		@include flex-column;
+		border-top: 1px solid var(--color-dark-section);
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+		width: 45%;
+		height: 75%;
+		top: unset;
+		bottom: 0;
+		--object-pos: right;
+		@include media($mobile) {
+			display: none;
+		}
+	}
+}
+
+.faq-item {
+	&:not(:last-child) {
+		border-bottom: 1px solid var(--color-dark-section);
+	}
+	&__btn {
+		@include reset-btn;
+		padding-block: adapt(20, 16);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+	}
+
+	&__title {
+		max-width: 500px;
+		text-wrap: balance;
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		@include square(24px);
+		position: relative;
+		display: flex;
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 24px;
+			height: 2px;
+			background: var(--color-accent);
+			transition: all 0.3s;
+			.spoiler-active & {
+				transform: rotate(180deg);
+			}
+		}
+
+		&::after {
+			transform: rotate(90deg);
+			.spoiler-active & {
+				transform: rotate(0deg);
+				opacity: 0;
+			}
+		}
+	}
+
+	&__content {
+	}
+
+	&__descr {
+		padding-bottom: 20px;
+		max-width: 500px;
+	}
+}

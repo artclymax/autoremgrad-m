@@ -1,0 +1,98 @@
+@use "../tools" as *;
+
+.hero-services {
+	padding-bottom: var(--section-padding-05);
+	&__container {
+		display: grid;
+		grid-template-columns: 0.75fr 1fr;
+		align-items: start;
+		gap: 64px 20px;
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+	.hero-page-content {
+		padding-block: var(--section-padding-05);
+		@include media($mobile) {
+			padding-bottom: unset;
+		}
+	}
+	&__right {
+		@include flex-column;
+		gap: 10px;
+		@include media($mobile) {
+			border-top: 1px solid var(--color-dark-section);
+			padding-top: 16px;
+			gap: 16px;
+		}
+	}
+
+	&__cat {
+	}
+}
+.services-cat-card {
+	@include reset-link;
+	display: grid;
+	grid-template-columns: 1fr 0.75fr;
+	gap: 20px;
+	position: relative;
+
+	@include media($mobile) {
+		grid-template-columns: 1fr;
+		gap: 16px;
+		&:last-child {
+			&::after {
+				content: none;
+			}
+		}
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		width: 100%;
+		background: var(--color-dark-section);
+	}
+	&__image {
+		min-height: 195px;
+		position: relative;
+		z-index: 2;
+
+		@include media($mobile) {
+			height: 200px;
+		}
+	}
+
+	&__content {
+		padding-block: 14px;
+		@include flex-column;
+		@include media($mobile) {
+			padding-top: unset;
+			padding-bottom: 46px;
+		}
+	}
+
+	&__title {
+		@include mb(10px);
+
+		@include media($mobile) {
+			@include mb(12px);
+		}
+	}
+
+	&__descr {
+		@include mb(18px);
+
+		@include media($mobile) {
+			@include mb(30px);
+		}
+	}
+
+	&__link {
+		width: 100%;
+		justify-content: space-between;
+	}
+}

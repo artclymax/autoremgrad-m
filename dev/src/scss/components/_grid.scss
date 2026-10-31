@@ -57,7 +57,6 @@
 	h6 {
 		//@include title-6;
 	}
-
 }
 
 .pt-section-05 {
@@ -89,6 +88,10 @@
 	display: grid;
 	grid-template-columns: repeat(var(--col), minmax(var(--min), 1fr));
 	gap: var(--gap);
+
+	@include media($mobile) {
+		grid-template-columns: 1fr;
+	}
 
 	&__item {
 	}

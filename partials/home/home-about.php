@@ -53,12 +53,16 @@ $benefits = get_field('home_about_benefits', $page) ?? [];
 							?>
 							<div class="home-about__benefits-item home-about-benefits-item">
 								<h3 class="home-about-benefits-item__title">
-									<span class="home-about-benefits-item__title-first">
-										<?php echo esc_html($title_first); ?>
-									</span>
-									<span class="home-about-benefits-item__title-second">
-										<?php echo esc_html($title_second); ?>
-									</span>
+									<?php if (!empty($title_first)): ?>
+										<span class="home-about-benefits-item__title-first">
+											<?php echo esc_html($title_first); ?>
+										</span>
+									<?php endif; ?>
+									<?php if (!empty($title_second)): ?>
+										<span class="home-about-benefits-item__title-second">
+											<?php echo esc_html($title_second); ?>
+										</span>
+									<?php endif; ?>
 								</h3>
 								<?php if (!empty($descr)): ?>
 									<div class="home-about-benefits-item__descr descr">

@@ -2,18 +2,24 @@
 
 .page-breadcrumbs,
 .woocommerce-breadcrumb {
-	--bc-gap: 10px;
-	--bc-current-color: var(--color-text-secondary);
-	--bc-link-color: var(--color-text-secondary);
+	--bc-gap: #{adapt(10, 8, $mobile)};
+	--bc-current-color: var(--color-second-text);
+	--bc-link-color: var(--color-accent);
 
 	@include reset-list;
-	@include text-input;
 	display: flex;
 	//flex-wrap: wrap;
 	padding-bottom: 16px;
 	margin-bottom: -16px;
 	overflow-y: auto;
 	gap: var(--bc-gap);
+
+	@include media($mobile, min) {
+		@include text-body-s;
+	}
+	@include media($mobile) {
+		@include text-body-m-mob;
+	}
 
 	& > span {
 		flex-shrink: 0;
@@ -26,7 +32,7 @@
 			&::after {
 				display: inline-flex;
 				content: "/";
-				color: var(--bc-link-color);
+				color: var(--bc-current-color);
 				//@include square(10px);
 				//@include bgimg(url("../../../public/images/icons/breadcrumbs-arrow.svg"));
 			}
@@ -39,7 +45,9 @@
 			transition: all 0.3s;
 			color: var(--bc-link-color);
 
-			@include hover-link(var(--color-accent));
+			@include hover-link(var(--color-accent)) {
+				color: var(--bc-link-color);
+			}
 		}
 	}
 	& > a {
@@ -92,38 +100,38 @@
 //	.breadcrumb-separator {
 //	}
 //}
-.woocommerce-pagination {
-	width: 100%;
-	ul {
-		--bc-gap: 6px;
-		--bc-current-color: var(--color-gray-5);
-		--bc-link-color: var(--color-gray-5);
+//.woocommerce-pagination {
+//	width: 100%;
+//	ul {
+//		--bc-gap: 6px;
+//		--bc-current-color: var(--color-gray-5);
+//		--bc-link-color: var(--color-gray-5);
 
-		@include reset-list;
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--bc-gap);
-		font-size: 14px;
-		justify-content: center;
-		width: 100%;
-	}
-	span.page-numbers,
-	a.page-numbers {
-		@include reset-link;
-		@include square(40px);
-		@include flex-center;
-		border-radius: 50%;
-		border: 1px solid var(--color-accent);
-		transition: all 0.3s;
+//		@include reset-list;
+//		display: flex;
+//		flex-wrap: wrap;
+//		gap: var(--bc-gap);
+//		font-size: 14px;
+//		justify-content: center;
+//		width: 100%;
+//	}
+//	span.page-numbers,
+//	a.page-numbers {
+//		@include reset-link;
+//		@include square(40px);
+//		@include flex-center;
+//		border-radius: 50%;
+//		border: 1px solid var(--color-accent);
+//		transition: all 0.3s;
 
-		@include hover {
-			background: var(--color-accent);
-			color: var(--color-bg-dark);
-		}
-	}
+//		@include hover {
+//			background: var(--color-accent);
+//			color: var(--color-bg-dark);
+//		}
+//	}
 
-	.page-numbers.current {
-		background: var(--color-accent);
-		color: var(--color-bg-dark);
-	}
-}
+//	.page-numbers.current {
+//		background: var(--color-accent);
+//		color: var(--color-bg-dark);
+//	}
+//}

@@ -56,7 +56,7 @@ if (function_exists('acf_add_local_field_group')) {
 				[
 					'param' => 'post_template',
 					'operator' => '!=',
-					'value' => 'archive-hints.php',
+					'value' => 'archive-services.php',
 				],
 
 				//[
@@ -65,50 +65,67 @@ if (function_exists('acf_add_local_field_group')) {
 				//	'value' => 'archive-project.php',
 				//],
 			],
-			[
-				[
-					'param' => 'options_page',
-					'operator' => '==',
-					'value' => 'opt-single-service',
-				],
-			],
 		],
 	]);
 
-
 	acf_add_local_field_group([
-		'key' => 'group_hero_page_hints',
-		'title' => 'Hero секция страницы',
+		'key' => 'group_archive_services',
+		'title' => 'Первый экран (Услуги)',
 		'fields' => [
 			[
-				'key' => 'field_hero_label',
+				'key' => 'field_archive_services_tab_content',
+				'label' => 'Контент',
+				'name' => '',
+				'type' => 'tab',
+				'placement' => 'top',
+				'endpoint' => 0,
+			],
+			[
+				'key' => 'field_archive_services_label',
 				'label' => 'Верхняя надпись',
-				'name' => 'hero_label',
+				'name' => 'hero_page_label',
 				'type' => 'text',
 			],
 			[
-				'key' => 'field_hero_title',
+				'key' => 'field_archive_services_title',
 				'label' => 'Заголовок',
-				'name' => 'hero_title',
+				'name' => 'hero_page_title',
 				'type' => 'text'
 			],
 			[
-				'key' => 'field_hero_featured_posts',
-				'label' => 'Закреплённые записи',
-				'name' => 'hero_featured_posts',
-				'type' => 'post_object',
-				'post_type' => ['hints'],
+				'key' => 'field_archive_services_descr',
+				'label' => 'Описание',
+				'name' => 'hero_page_descr',
+				'type' => 'wysiwyg',
+			],
+
+			[
+				'key' => 'field_archive_services_tab_filter',
+				'label' => 'Фильтр категорий',
+				'name' => '',
+				'type' => 'tab',
+				'placement' => 'top',
+				'endpoint' => 0,
+			],
+			[
+				'key' => 'field_archive_services_selected_cats',
+				'label' => 'Выбрать категории для вывода',
+				'name' => 'hero_page_selected_cats',
+				'type' => 'taxonomy',
+				'taxonomy' => 'services_cat',
+				'field_type' => 'multi_select',
 				'return_format' => 'object',
 				'multiple' => 1,
-				'instructions' => 'Выберите 1-3 записи из  для вывода в правой части главного баннера',
+				'allow_null' => 1,
+				'instructions' => 'Если ничего не выбрано — выводятся все категории.',
 			],
 		],
 		'location' => [
 			[
 				[
-					'param' => 'post_template',
+					'param' => 'page_template',
 					'operator' => '==',
-					'value' => 'archive-hints.php',
+					'value' => 'archive-services.php',
 				]
 			]
 		],

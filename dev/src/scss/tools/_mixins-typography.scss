@@ -94,7 +94,7 @@
 	line-height: 129%;
 }
 // MOBILE
-@mixin text-display {
+@mixin text-display-mob {
 	@include reset;
 	font-family: var(--font-family-main);
 	font-weight: 600;

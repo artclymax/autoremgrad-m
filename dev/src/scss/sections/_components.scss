@@ -1,0 +1,72 @@
+@use "../tools" as *;
+
+.section-header {
+	@include flex-column;
+	gap: adapt(20, 16);
+
+	&__label {
+	}
+	&__title {
+	}
+	&__descr {
+	}
+}
+
+.section-header-horizontal {
+	display: grid;
+	gap: 20px 40px;
+	grid-template-columns: 2fr 1.3fr 0.7fr;
+	align-items: baseline;
+
+	@include media($tablet) {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+	&__label {
+		grid-column: 1 / -1;
+	}
+
+	&__title {
+	}
+	&__descr {
+	}
+
+	&__link {
+	}
+}
+.section-header-decor {
+	position: relative;
+	@include media($mobile, min) {
+		padding-bottom: 20px;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 100vw;
+			height: 1px;
+			transform: translateX(-50%);
+			background-color: var(--color-dark-section);
+		}
+	}
+}
+.hero-page-content {
+	@include flex-column;
+	gap: adapt(60, 20, $mobile);
+
+	&__breadcrumbs {
+	}
+	&__wrapper {
+		@include flex-column;
+		gap: adapt(20, 16, $mobile);
+	}
+	&__label {
+	}
+
+	&__title {
+		text-wrap: balance;
+	}
+
+	&__descr {
+	}
+}

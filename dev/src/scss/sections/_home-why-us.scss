@@ -1,0 +1,65 @@
+@use "../tools" as *;
+
+.home-why-us {
+	background: var(--color-dark-section);
+	color: var(--color-warm-bg);
+	@include media($mobile) {
+		padding-bottom: 24px;
+	}
+
+	&__container {
+		--gap: 20px;
+		--width: #{adapt(690, 360, $mobile, $laptop)};
+	}
+	.section-header {
+		&__title {
+			color: var(--color-light-card);
+		}
+	}
+	&__image {
+		min-height: adapt(815, 300, $finishBreakpoint, $tablet);
+		@include media($mobile) {
+			order: 2;
+		}
+	}
+
+	&__content {
+		padding-block: adapt(64, 24);
+		@include flex-column;
+		gap: 24px;
+	}
+
+	&__features {
+		position: relative;
+		gap: 40px adapt(80, 20, $tablet);
+		--min: 300px;
+		@include media($mobile, min) {
+			padding-top: adapt(58, 24);
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 1px;
+				background-color: var(--color-border);
+			}
+		}
+	}
+
+	&__feature {
+		@include flex-column;
+		gap: 20px;
+		@include media($mobile) {
+			padding-top: 16px;
+			border-top: 1px solid var(--color-border);
+		}
+	}
+
+	&__feature-title {
+		color: var(--color-light-card);
+	}
+
+	&__feature-descr {
+	}
+}

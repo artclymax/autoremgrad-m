@@ -1,0 +1,117 @@
+@use "../tools" as *;
+
+.how-we-work {
+	@include media($mobile) {
+		@include flex-column;
+		gap: 24px;
+	}
+	&__header-container {
+	}
+
+	&__container {
+		--gap: 20px;
+		--width: #{adapt(800, 360, $mobile, $tablet)};
+		@include media($mobile, min) {
+			align-items: center;
+		}
+
+		@include media($mobile) {
+			gap: 24px;
+		}
+	}
+
+	&__header {
+	}
+
+	&__content {
+		@include media($mobile, min) {
+			padding-block: var(--section-padding-05);
+		}
+	}
+
+	&__steps {
+		--min: 180px;
+		gap: 20px;
+
+		@include media($mobile) {
+			gap: 16px;
+		}
+	}
+
+	&__step {
+	}
+
+	&__image {
+		min-height: adapt(487, 240, $finishBreakpoint, $tablet);
+	}
+}
+.how-we-work-step {
+	@include flex-column;
+	gap: 20px;
+	height: 100%;
+
+	@include media($mobile) {
+		display: grid;
+		gap: 16px;
+		grid-template-columns: 22px 1fr;
+		align-items: start;
+		&:not(:last-child) {
+			padding-bottom: 24px;
+			border-bottom: 1px solid var(--color-dark-section);
+		}
+		&:first-child {
+			padding-top: 16px;
+			border-top: 1px solid var(--color-dark-section);
+		}
+	}
+
+	&__dot {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		position: relative;
+		gap: 10px;
+
+		&::before {
+			content: "";
+			flex-shrink: 0;
+			@include square(22px);
+			border-radius: 50%;
+			background: var(--color-accent);
+			@include media($mobile) {
+				margin-top: 3px;
+			}
+		}
+		@include media($mobile, min) {
+			&::after {
+				content: "";
+
+				width: 100%;
+				height: 8px;
+				@include bgimg(url("../../../public/images/icons/arrow-right.svg"), 100%);
+			}
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 20px;
+		height: 100%;
+		@include media($mobile) {
+			gap: 12px;
+		}
+	}
+
+	&__title {
+		@include media($tablet, min) {
+			min-height: 56px;
+		}
+	}
+
+	&__descr {
+		@include text-body-s;
+		@include media($mobile) {
+			@include text-body-m-mob;
+		}
+	}
+}

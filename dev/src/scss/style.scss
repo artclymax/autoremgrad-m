@@ -26,9 +26,9 @@
 @use "components/_header-menu.scss";
 @use "components/_swiper.scss";
 @use "components/_navxt_breadcrumbs.scss";
-//@use "components/_form.scss";
+@use "components/_form.scss";
 @use "components/_contacts.scss";
-//@use "components/_custom-select.scss";
+@use "components/_custom-select.scss";
 //@use "components/_cf-select.scss";
 //@use "components/_running-line.scss";
 //@use "components/_scroll-to-top.scss";
@@ -70,6 +70,22 @@
 
 // home
 @use "sections/_home-hero.scss";
+@use "sections/_home-about.scss";
+@use "sections/_home-services.scss";
+@use "sections/_home-why-us.scss";
+@use "sections/_home-projects.scss";
+@use "sections/_how-we-work.scss";
+@use "sections/_section-form.scss";
+@use "sections/_home-reviews.scss";
+@use "sections/_faq.scss";
+@use "sections/_home-contacts.scss";
+//@use "test.scss";
+
+// services
+@use "sections/_hero-services.scss";
+@use "sections/_services-list.scss";
+@use "sections/_services-form.scss";
+@use "sections/_hero-services-cat.scss";
 
 #wpadminbar {
 	position: fixed;

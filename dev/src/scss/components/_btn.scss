@@ -164,6 +164,17 @@
 			background: var(--color-light);
 		}
 	}
+
+	&--down {
+		&::after {
+			transform: rotate(90deg);
+		}
+		&:hover {
+			&::after {
+				transform: rotate(90deg) translateX(6px);
+			}
+		}
+	}
 }
 //.catalog-btn {
 //	--icon-bg: url("../../../public/images/icons/catalog-btn.svg");

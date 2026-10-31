@@ -28,7 +28,7 @@
 
 	@include reset-btn;
 	flex-shrink: 0;
-	background: var(--color-light-card);
+	background: var(--color-0);
 	border: none;
 	//border: 1px solid var(--color-white);
 	//@include square(adapt(48, 40, $tablet));
@@ -42,7 +42,7 @@
 	z-index: 2;
 	overflow: hidden;
 	transition: all 0.3s;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+	//box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
 	&::after {
 		content: "";
 		z-index: 1;

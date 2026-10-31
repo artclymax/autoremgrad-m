@@ -1,0 +1,71 @@
+@use "../tools" as *;
+
+.section-services-form {
+	background: var(--color-dark-section);
+	color: var(--color-warm-bg);
+	@include media($mobile) {
+		padding-bottom: 24px;
+	}
+	&__container {
+		--width: 590px;
+		--gap: #{adapt(102, 20, $tablet)};
+		@include media($mobile) {
+			gap: 40px;
+		}
+	}
+
+	&__image {
+		min-height: adapt(600, 300, $mobile);
+		@include media($mobile) {
+			order: 2;
+		}
+	}
+
+	&__right {
+		padding-block: var(--section-padding-05);
+		@include flex-column;
+		gap: 20px;
+
+		@include media($mobile) {
+			gap: 24px;
+			padding-bottom: unset;
+		}
+	}
+	.section-header {
+		&__label {
+		}
+
+		&__title {
+			color: var(--color-warm-bg);
+		}
+
+		&__descr {
+		}
+	}
+
+	&__form {
+		.form-field__wrapper {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 30px 20px;
+			flex-wrap: wrap;
+			p {
+				@include reset;
+			}
+			.form-field--btn {
+				@include media($mobile, min) {
+					flex: 1;
+				}
+			}
+			.form-field__phone {
+				@include text-body-l;
+				@include hover-link(var(--color-accent));
+				color: var(--color-accent);
+				@include media($mobile) {
+					@include text-btn-mob;
+				}
+			}
+		}
+	}
+}

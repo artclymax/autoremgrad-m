@@ -35,7 +35,7 @@ body {
 		overflow: hidden;
 	}
 	* {
-		line-height: var(--line-height);
+		//line-height: var(--line-height);
 		letter-spacing: var(--letter-spacing);
 	}
 }
@@ -72,20 +72,32 @@ body {
 	@include media($mobile) {
 		flex-direction: column;
 		padding-left: var(--container-padding);
+		padding-right: var(--container-padding);
 	}
 
 	&__full {
 		flex: 0 1 calc(100% - var(--width) - var(--gap));
 		position: relative;
+		@include media($mobile) {
+			flex: initial;
+			width: 100%;
+		}
 	}
 
 	&__content {
 		flex: 0 0 var(--width);
+		@include media($mobile) {
+			flex: initial;
+		}
 	}
 
 	&--reverse {
 		padding-right: unset;
 		padding-left: max(var(--container-padding), calc((100% - var(--container-width)) / 2));
+		@include media($mobile) {
+			padding-left: var(--container-padding);
+			padding-right: var(--container-padding);
+		}
 	}
 }
 

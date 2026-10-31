@@ -24,8 +24,8 @@ import { fileBtn } from "./js/FileBtn.js";
 import { Spoiler } from "./js/Spoiler.js";
 import { ScrollToTop } from "./js/ScrollToTop.js";
 import { MXSwiper } from "./js/MXSwiper.js";
-//import { CustomSelect } from "./js/CustomSelect.js";
-import { Tabs } from './js/Tabs.js';
+import { CustomSelect } from "./js/CustomSelect.js";
+import { Tabs } from "./js/Tabs.js";
 //import { MapScrollLock } from './js/MapScrollLock.js';
 //import { cf7CustomValidation } from './js/cf7-validation.js';
 //import { SelectFromAcf } from './js/SelectFromAcf.js';
@@ -107,11 +107,10 @@ new Spoiler();
 
 new MXSwiper();
 
-
-//new CustomSelect({
-//	selector: "select",
-//	forceSend: true,
-//});
+new CustomSelect({
+	selector: "select",
+	forceSend: true,
+});
 
 //new MapScrollLock();
 /*
@@ -197,4 +196,40 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	initSliders();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+	const swiperEl = document.querySelector(".home-reviews-swiper");
+	if (!swiperEl) return;
+
+	const prevBtn = swiperEl.querySelector(".home-reviews-swiper__prev");
+	const nextBtn = swiperEl.querySelector(".home-reviews-swiper__next");
+	const counterCurrent = swiperEl.querySelector(
+		".home-reviews-swiper__counter-current",
+	);
+	const counterTotal = swiperEl.querySelector(
+		".home-reviews-swiper__counter-total",
+	);
+
+	const swiper = new Swiper(swiperEl, {
+		slidesPerView: 1,
+		spaceBetween: 20,
+		rewind: true,
+		navigation: {
+			prevEl: prevBtn,
+			nextEl: nextBtn,
+		},
+	});
+
+	// Обновление счётчика
+	const updateCounter = () => {
+		const current = String(swiper.realIndex + 1).padStart(2, "0");
+		const total = String(swiper.slides.length).padStart(2, "0");
+
+		if (counterCurrent) counterCurrent.textContent = current;
+		if (counterTotal) counterTotal.textContent = total;
+	};
+
+	updateCounter();
+	swiper.on("slideChange", updateCounter);
 });

@@ -1,0 +1,66 @@
+@use "../tools" as *;
+
+.section-form {
+	position: relative;
+	background: var(--color-light-card);
+	margin-top: var(--section-padding-05);
+
+	@include media($mobile) {
+		padding-block: unset;
+	}
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__left {
+		@include flex-column;
+		gap: 20px;
+		justify-content: center;
+		color: var(--color-light-card);
+		position: relative;
+		z-index: 2;
+
+		@include media($mobile) {
+			padding-block: 24px;
+		}
+	}
+
+	.section-header {
+		position: relative;
+		z-index: 2;
+		&__label {
+			color: var(--color-light-card);
+		}
+		&__title {
+			color: var(--color-light-card);
+		}
+	}
+
+	&__right {
+		background: var(--color-light-card);
+		padding-left: 20px;
+		@include media($mobile) {
+			padding-left: unset;
+			padding-block: 24px;
+		}
+	}
+
+	&__image {
+		background: var(--color-accent);
+		@include image-abs;
+		z-index: 1;
+		@include media($mobile, min) {
+			width: 50%;
+		}
+		@include media($mobile) {
+			width: calc(100% + 32px);
+			margin-inline: -16px;
+			transform: scale(-1, 1);
+		}
+	}
+}

@@ -1,0 +1,111 @@
+@use "../tools" as *;
+
+.home-about {
+	@include media($tablet) {
+		padding-bottom: var(--section-padding-05);
+	}
+	&__container {
+		align-items: center;
+		--gap: 20px;
+		--width: #{adapt(690, 360, $mobile, $laptop)};
+
+		@include media($mobile) {
+			gap: 40px;
+		}
+	}
+
+	&__content {
+		padding-block: 64px;
+		@include flex-column;
+		gap: adapt(40, 20);
+		@include media($mobile) {
+			padding-bottom: unset;
+		}
+	}
+
+	&__link {
+	}
+
+	&__image {
+		min-height: adapt(543, 220, $finishBreakpoint, $tablet);
+	}
+
+	&__benefits {
+		@include media($tablet, min) {
+			border-top: 1px solid var(--color-dark-section);
+		}
+		@include media($tablet) {
+			margin-top: 64px;
+		}
+	}
+
+	&__benefits-container {
+	}
+
+	&__benefits-grid {
+		gap: 0;
+		grid-template-columns: repeat(4, 1fr);
+		overflow: hidden;
+		@include media($tablet) {
+			grid-template-columns: 1fr 1fr;
+			gap: 32px 16px;
+		}
+	}
+
+	&__benefits-item {
+	}
+}
+.home-about-benefits-item {
+	@include flex-column;
+	gap: 20px;
+	padding-top: 60px;
+
+	@include media($tablet, min) {
+		padding-bottom: 20px;
+
+		&:not(:last-child) {
+			border-right: 1px solid var(--color-dark-section);
+			padding-right: 20px;
+		}
+		&:not(:first-child) {
+			padding-left: 20px;
+		}
+	}
+
+	@include media($tablet) {
+		padding-top: 20px;
+		border-top: 1px solid var(--color-dark-section);
+	}
+
+	&__title {
+		@include media($mobile, min) {
+			@include title-3;
+			margin-top: auto;
+		}
+		@include media($mobile) {
+			@include title-4-mob;
+		}
+	}
+
+	&__title-first {
+		@include media($mobile, min) {
+			@include text-display;
+		}
+		@include media($mobile) {
+			@include title-3-mob;
+		}
+	}
+
+	&__title-second {
+	}
+
+	&__descr {
+		@include media($mobile, min) {
+			@include title-4;
+		}
+		@include media($mobile) {
+			@include text-body-s-mob;
+		}
+		color: inherit;
+	}
+}

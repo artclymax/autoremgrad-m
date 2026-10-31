@@ -1,0 +1,117 @@
+@use "../tools" as *;
+
+.home-reviews {
+	&__container {
+		display: grid;
+		grid-template-columns: 0.75fr 1fr;
+		align-items: start;
+		gap: 24px 20px;
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__header {
+		height: 100%;
+		@include flex-column;
+		gap: adapt(40, 24);
+		@include media($mobile, min) {
+			padding-right: adapt(35, 10, $tablet);
+			border-right: 1px solid var(--color-dark-section);
+		}
+
+		&::after {
+			content: "";
+			width: adapt(400, 160);
+			height: adapt(280, 120);
+			@include bgimg(url("../../../public/images/icons/qoute-icon.svg"));
+			@include media($mobile, min) {
+				align-self: center;
+			}
+		}
+	}
+
+	&__swiper {
+		width: 100%;
+	}
+}
+
+.home-reviews-swiper {
+	@include flex-column;
+	gap: adapt(80, 24, $tablet);
+	height: 100%;
+	display: flex !important;
+	&__slide {
+	}
+
+	&__controls {
+		display: flex;
+		justify-content: center;
+		margin-top: auto;
+	}
+
+	&__nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 486px;
+		width: 100%;
+		gap: 8px;
+	}
+
+	&__prev,
+	&__next {
+		flex-shrink: 0;
+	}
+	&__counter-wrapper {
+		flex-grow: 1;
+		gap: adapt(32, 8, $tablet);
+		display: flex;
+		align-items: center;
+
+		&::before,
+		&::after {
+			content: "";
+			height: 1px;
+			background: var(--color-dark-section);
+			width: 100%;
+			flex: 1;
+		}
+	}
+	&__counter {
+		@include text-body-m;
+		display: flex;
+		gap: 5px;
+		@include media($mobile) {
+			@include text-body-m-mob;
+		}
+	}
+	&__counter-current {
+		color: var(--color-dark-text);
+	}
+
+	&__counter-divider {
+		color: var(--color-dark-text);
+	}
+
+	&__counter-total {
+	}
+}
+
+.reviews-slide {
+	&__wrapper {
+		@include flex-column;
+		gap: adapt(20, 12, $tablet);
+	}
+
+	&__descr {
+	}
+
+	&__author {
+		@include reset;
+		@include text-body-m;
+		@include media($mobile) {
+			@include text-body-m-mob;
+		}
+	}
+}

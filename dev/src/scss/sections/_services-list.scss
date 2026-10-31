@@ -1,0 +1,105 @@
+@use "../tools" as *;
+
+.services-list {
+	&__container {
+		@include flex-column;
+		gap: 40px;
+		@include media($mobile) {
+			gap: 0;
+		}
+	}
+
+	&__header {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid var(--color-dark-section);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+	}
+
+	&__header-left {
+	}
+
+	&__label {
+		grid-column: 1 / -1;
+	}
+
+	&__title {
+		text-wrap: balance;
+	}
+
+	&__header-right {
+		@include flex-column;
+		gap: 22px;
+		justify-content: space-between;
+	}
+
+	&__descr {
+	}
+
+	&__link {
+		@include media($mobile, min) {
+			max-width: 282px;
+			justify-content: space-between;
+		}
+		@include media($mobile) {
+			padding-top: 8px;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 40px 20px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
+	}
+
+	&__card {
+	}
+}
+
+.services-list-card {
+	@include reset-link;
+	display: flex;
+	align-items: center;
+
+	justify-content: space-between;
+	gap: 22px;
+
+	@include icon(url("../../../public/images/icons/btn-arrow.svg"), 20px, after);
+
+	@include hover {
+		.services-list-card__title {
+			color: var(--color-accent-hover);
+		}
+		&::after {
+			transform: translateX(6px);
+		}
+	}
+
+	@include media($mobile) {
+		padding-block: 16px;
+		border-bottom: 1px solid var(--color-dark-section);
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 10px;
+	}
+
+	&__title {
+		transition: all 0.3s ease-in-out;
+	}
+
+	&__descr {
+	}
+}
