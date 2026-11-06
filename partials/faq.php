@@ -40,7 +40,7 @@ $items = get_field('faq_items', $page) ?: get_field('faq_items', $default_page) 
 						?>
 						<div class="faq-item<?php echo esc_attr($is_active); ?>" data-spoiler>
 							<button class="faq-item__btn" data-spoiler-title type="button">
-								<h3 class="faq-item__title title-4">
+								<h3 class="faq-item__title title-3">
 									<?php echo esc_html($item_title); ?>
 								</h3>
 								<span class="faq-item__icon"></span>

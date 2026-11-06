@@ -5,7 +5,6 @@ $title = get_field('home_about_title', $page) ?? '';
 $descr = get_field('home_about_descr', $page) ?? '';
 $link = get_field('home_about_link', $page) ?? [];
 $image = get_field('home_about_image', $page) ?? null;
-$benefits = get_field('home_about_benefits', $page) ?? [];
 ?>
 
 <?php if ($title || $descr): ?>
@@ -40,40 +39,6 @@ $benefits = get_field('home_about_benefits', $page) ?? [];
 			<?php endif; ?>
 		</div>
 
-		<?php if (!empty($benefits)): ?>
-			<div class="home-about__benefits">
-				<div class="container home-about__benefits-container">
-					<div class="home-about__benefits-grid grid">
-						<?php foreach ($benefits as $item):
-							$title_first = $item['title_first'] ?? '';
-							$title_second = $item['title_second'] ?? '';
-							$descr = $item['descr'] ?? '';
-							if (!$title_first && !$title_second)
-								continue;
-							?>
-							<div class="home-about__benefits-item home-about-benefits-item">
-								<h3 class="home-about-benefits-item__title">
-									<?php if (!empty($title_first)): ?>
-										<span class="home-about-benefits-item__title-first">
-											<?php echo esc_html($title_first); ?>
-										</span>
-									<?php endif; ?>
-									<?php if (!empty($title_second)): ?>
-										<span class="home-about-benefits-item__title-second">
-											<?php echo esc_html($title_second); ?>
-										</span>
-									<?php endif; ?>
-								</h3>
-								<?php if (!empty($descr)): ?>
-									<div class="home-about-benefits-item__descr descr">
-										<?php echo wp_kses_post($descr) ?>
-									</div>
-								<?php endif; ?>
-							</div>
-						<?php endforeach; ?>
-					</div>
-				</div>
-			</div>
-		<?php endif; ?>
+		<?php get_template_part('partials/about/about-benefits'); ?>
 	</section>
 <?php endif; ?>

@@ -1,0 +1,129 @@
+@use "../tools" as *;
+
+.projects-page {
+	@include media($mobile) {
+		padding-bottom: unset;
+	}
+	&__container {
+		@include flex-column;
+		gap: 20px;
+		@include media($mobile) {
+			gap: 24px;
+		}
+	}
+
+	&__header {
+		@include flex-column;
+		gap: 12px;
+		@include media($mobile, min) {
+			gap: 20px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid var(--color-border);
+		}
+	}
+
+	&__label {
+		@include media($mobile) {
+			color: var(--color-dark-text);
+		}
+	}
+
+	&__filter {
+		display: flex;
+		gap: 20px;
+		overflow-y: auto;
+		padding-bottom: 10px;
+		margin-bottom: -10px;
+
+		@include media($mobile) {
+			gap: 8px;
+			padding-top: 2px;
+		}
+	}
+
+	&__filter-link {
+		flex-shrink: 0;
+		@include hover-link(var(--color-accent));
+		@include text-btn;
+		padding-bottom: 10px;
+
+		&.active {
+			color: var(--color-dark-text);
+			&::after {
+				background-color: var(--color-accent);
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@include media($mobile) {
+			@include text-btn-mob;
+			padding: 12px 16px;
+			border: 1px solid currentColor;
+			color: var(--color-dark-text);
+
+			&::after {
+				display: none;
+			}
+
+			&.active {
+				color: var(--color-accent);
+			}
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 40px 20px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__card {
+	}
+
+	&__gallery-link {
+	}
+
+	&__load-more {
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+	}
+
+	&__load-more-btn {
+		@include media($mobile, min) {
+			width: initial;
+			max-width: initial;
+		}
+	}
+}
+.projects-card {
+	@include hover {
+		.projects-card__image img {
+			transform: scale(1);
+		}
+	}
+	&__image {
+		overflow: hidden;
+		img {
+			transition: all 0.3s ease-in-out;
+			transform: scale(1.1);
+		}
+	}
+
+	&__content {
+	}
+
+	&__title {
+	}
+
+	&__tags {
+	}
+
+	&__tags-text {
+	}
+}

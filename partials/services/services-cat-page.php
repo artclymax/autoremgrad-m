@@ -9,8 +9,8 @@ $term_name = $term->name;
 $term_slug = $term->slug;
 
 $label = get_field('page_label', 'services_cat_' . $term_id) ?: $term_name ?? '';
-$title = get_field('page_title', 'services_cat_' . $term_id) ?? 'Выберите необходимое направление';
-$descr = get_field('page_descr', 'services_cat_' . $term_id) ?? 'Если вы не знаете точную причину неисправности, начните с диагностики автомобиля';
+$title = get_field('page_title', 'services_cat_' . $term_id) ?: 'Выберите необходимое направление';
+$descr = get_field('page_descr', 'services_cat_' . $term_id) ?: 'Если вы не знаете точную причину неисправности, начните с диагностики автомобиля';
 
 // Все записи этой категории
 $services_query = new WP_Query([
@@ -28,10 +28,10 @@ $services_query = new WP_Query([
 ]);
 ?>
 
-<?php if ($services_query->have_posts()): ?>
-	<section class="section services-cat-page" id="services-cat-page">
-		<div class="container services-cat-page__container">
-			<div class="services-cat-page__grid">
+<section class="section services-cat-page" id="services-cat-page">
+	<div class="container services-cat-page__container">
+		<div class="services-cat-page__grid">
+			<?php if ($services_query->have_posts()): ?>
 				<div class="services-cat-page__left">
 					<?php get_template_part('partials/section-header', null, [
 						'label' => $label,
@@ -55,7 +55,7 @@ $services_query = new WP_Query([
 							?>
 							<div class="faq-item<?php echo esc_attr($is_active); ?> faq-item-services" data-spoiler>
 								<button class="faq-item__btn" data-spoiler-title type="button">
-									<h3 class="faq-item__title title-4">
+									<h3 class="faq-item__title title-3">
 										<?php echo esc_html($service_title); ?>
 									</h3>
 									<span class="faq-item__icon"></span>
@@ -71,7 +71,8 @@ $services_query = new WP_Query([
 										<a class="faq-item-services__btn btn" href="#section-services-form">
 											Записаться
 										</a>
-										<a class="faq-item-services__link btn-link" href="<?php echo esc_url(home_url('/prices#' . $term_slug)); ?>">
+										<a class="faq-item-services__link btn-link"
+											href="<?php echo esc_url(home_url('/prices#' . $term_slug . '-' . $service_slug)); ?>">
 											Подробнее
 										</a>
 									</div>
@@ -81,7 +82,12 @@ $services_query = new WP_Query([
 						wp_reset_postdata(); ?>
 					</div>
 				<?php endif; ?>
+
 			</div>
-		</div>
-	</section>
-<?php endif; ?>
+		<?php else: ?>
+			<p class="title-3">
+				Услуги для категории "<?= esc_html($term->name) ?>" не найдены
+			</p>
+		<?php endif; ?>
+	</div>
+</section>

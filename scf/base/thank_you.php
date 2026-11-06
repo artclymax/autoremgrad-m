@@ -21,6 +21,12 @@ add_action('acf/init', function () {
 		'fields' => array(
 
 			array(
+				'key' => 'field_thank_you_label',
+				'name' => 'thank_you_label',
+				'label' => 'Надзаголовок',
+				'type' => 'text',
+			),
+			array(
 				'key' => 'field_thank_you_title',
 				'name' => 'thank_you_title',
 				'label' => 'Заголовок',
@@ -36,6 +42,12 @@ add_action('acf/init', function () {
 				'key' => 'field_thank_you_btn',
 				'name' => 'thank_you_btn',
 				'label' => 'Кнопка',
+				'type' => 'link',
+			),
+			array(
+				'key' => 'field_thank_you_link',
+				'name' => 'thank_you_link',
+				'label' => 'Ссылка',
 				'type' => 'link',
 			),
 			array(

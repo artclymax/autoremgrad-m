@@ -1,10 +1,11 @@
 <?php
 $page = $args['page'] ?? get_queried_object();
-$label = get_field('home_projects_label', $page) ?? '';
-$title = get_field('home_projects_title', $page) ?? '';
-$descr = get_field('home_projects_descr', $page) ?? '';
-$link = get_field('home_projects_link', $page) ?? [];
-$selected_ids = get_field('home_projects_selected', $page) ?? [];
+$default_page = 'option';
+$label = get_field('home_projects_label', $page) ?: get_field('home_projects_label', $default_page) ?? '';
+$title = get_field('home_projects_title', $page) ?: get_field('home_projects_title', $default_page) ?? '';
+$descr = get_field('home_projects_descr', $page) ?: get_field('home_projects_descr', $default_page) ?? '';
+$link = get_field('home_projects_link', $page) ?: get_field('home_projects_link', $default_page) ?? [];
+$selected_ids = get_field('home_projects_selected', $page) ?: get_field('home_projects_selected', $default_page) ?? [];
 
 if (empty($selected_ids)) {
 	$projects_query = new WP_Query([

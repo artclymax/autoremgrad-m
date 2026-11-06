@@ -1,0 +1,165 @@
+@use "../tools" as *;
+
+.hero-services-category-nav {
+	&__container {
+	}
+
+	&__link {
+	}
+}
+.prices-page {
+	&__nav--top {
+	}
+
+	&__container {
+	}
+
+	&__tab {
+	}
+	.section-header {
+		@include media($mobile, min) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+
+			&__label {
+				grid-column: 1 / -1;
+			}
+		}
+	}
+	&__tab-wrapper {
+		@include flex-column;
+		gap: adapt(40, 24, $mobile);
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 0.6fr 1fr;
+		align-items: start;
+		gap: 24px adapt(80, 20, $tablet);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__services-nav {
+		@include media($mobile, min) {
+			@include flex-column;
+			margin-top: -20px;
+			padding-right: 20px;
+			border-right: 1px solid var(--color-second-text);
+			height: 100%;
+		}
+		@include media($mobile) {
+			display: flex;
+			gap: 8px;
+			overflow-y: auto;
+			padding-bottom: 10px;
+			margin-bottom: -10px;
+		}
+	}
+
+	&__service-link {
+		color: var(--color-dark-text);
+		@include media($tablet, min) {
+			@include title-4;
+		}
+		@include media($mobile, min) {
+			padding-block: 20px !important;
+			justify-content: space-between;
+			&:not(:last-child) {
+				border-bottom: 1px solid var(--color-second-text);
+			}
+		}
+		@include media($mobile) {
+			@include text-btn-mob;
+			flex-shrink: 0;
+			padding: 16px;
+			border: 1px solid currentColor;
+			&::after {
+				display: none;
+			}
+		}
+		&.active-svc {
+			@include media($tablet, min) {
+				@include title-3;
+			}
+			color: var(--color-accent);
+			--url-icon: url("../../../public/images/icons/btn-arrow.svg");
+		}
+	}
+
+	&__services-content {
+	}
+
+	&__service-content-item {
+		@include flex-column;
+		gap: adapt(20, 16);
+	}
+
+	&__service-title {
+	}
+
+	&__table {
+		display: grid;
+		align-items: start;
+		gap: 20px;
+		tr {
+			display: grid;
+			grid-template-columns: 1fr 0.3fr;
+			gap: 16px;
+			padding-bottom: 10px;
+			border-bottom: 1px solid var(--color-second-text);
+			@include media($mobile) {
+				grid-template-columns: 1fr 1fr;
+				align-items: center;
+				& > *:last-child {
+					text-align: right;
+				}
+			}
+		}
+		tbody {
+			display: grid;
+			align-items: start;
+			gap: 20px;
+			color: var(--color-dark-text);
+			@include media($mobile, min) {
+				@include text-body-l;
+			}
+		}
+	}
+
+	&__table-th {
+		text-align: left;
+		@include media($mobile, min) {
+			@include text-body-s;
+		}
+		@include media($mobile) {
+			@include text-body-s-mob;
+		}
+	}
+
+	&__table-row {
+	}
+
+	&__table-td {
+	}
+
+	&__table-td--cost {
+		@include media($mobile) {
+			@include text-input-mob;
+		}
+	}
+
+	&__service-descr {
+		@include media($mobile, min) {
+			@include text-body-s;
+		}
+		@include media($mobile) {
+			@include text-body-s-mob;
+		}
+	}
+	&__btn {
+	}
+}

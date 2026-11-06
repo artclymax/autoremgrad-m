@@ -42,7 +42,7 @@ if (empty($selected_ids)) {
 						$index++;
 						$number = $index > 9 ? $index : '0' . $index;
 						$service_id = get_the_ID();
-						$link_service = get_permalink();
+						$link_service = home_url('/services-cat/legkovye-avtomobili/#' . $post->post_name);
 						?>
 						<a class="home-services__card services-card" href="<?php echo esc_url($link_service); ?>">
 							<?php if (has_post_thumbnail()): ?>

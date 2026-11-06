@@ -63,6 +63,13 @@ acf_add_local_field_group([
 				'operator' => '==',
 				'value' => 'front-page.php'
 			]
+		],
+		[
+			[
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'opt-page'
+			]
 		]
 	],
 ]);

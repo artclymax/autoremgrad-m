@@ -19,5 +19,18 @@ require_once get_template_directory() . '/scf/faq.php';
 require_once get_template_directory() . '/scf/services/services-cat.php';
 require_once get_template_directory() . '/scf/services/services-list.php';
 require_once get_template_directory() . '/scf/services/services-form.php';
+require_once get_template_directory() . '/scf/services/services-prices.php';
+
+require_once get_template_directory() . '/scf/prices/prices-page.php';
+require_once get_template_directory() . '/scf/prices/prices-formation.php';
+require_once get_template_directory() . '/scf/prices-form.php';
+
+require_once get_template_directory() . '/scf/about/about-page.php';
+require_once get_template_directory() . '/scf/about/about-prices.php';
+require_once get_template_directory() . '/scf/about/about-approach.php';
+require_once get_template_directory() . '/scf/about/about-categories.php';
+require_once get_template_directory() . '/scf/about/about-cta.php';
+
+require_once get_template_directory() . '/scf/policy/policy-page.php';
 
 ?>

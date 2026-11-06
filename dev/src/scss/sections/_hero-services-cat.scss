@@ -2,7 +2,7 @@
 
 .hero-services-category {
 	&__container {
-		--min: #{adapt(590, 360, $tablet, $laptop)};
+		--width: #{adapt(590, 360, $tablet, $laptop-sm)};
 		--gap: 20px;
 	}
 
@@ -18,18 +18,24 @@
 	&__actions {
 		display: flex;
 		gap: 20px;
+		flex-wrap: wrap;
 	}
 
 	&__btn {
-		max-width: initial;
-		width: initial;
+		@include media($mobile, min) {
+			max-width: initial;
+			width: initial;
+		}
 	}
 
 	&__link {
 	}
 
 	&__right {
-		min-height: 480px;
+		min-height: adapt(480, 220);
+		@include media($mobile) {
+			margin-bottom: 24px;
+		}
 	}
 
 	&__nav {
@@ -61,12 +67,16 @@
 		margin-inline: -0.5px;
 		border-block: 2px solid var(--color-0);
 		justify-content: space-between;
-		&.active-category {
+		&.active-category,
+		&.active-cat {
 			color: var(--color-accent);
 			border-top-color: var(--color-accent);
+			--url-icon: url("../../../public/images/icons/btn-arrow.svg");
 		}
 		@include media($mobile) {
+			@include title-4-mob;
 			flex-shrink: 0;
+			padding: 12px 16px;
 		}
 	}
 }

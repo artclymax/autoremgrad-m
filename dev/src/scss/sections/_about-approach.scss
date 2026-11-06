@@ -1,0 +1,107 @@
+@use "../tools" as *;
+
+.about-approach {
+	@include flex-column;
+	gap: 20px;
+
+	@include media($mobile) {
+		gap: 24px;
+	}
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
+	}
+
+	&__right {
+		@include flex-column;
+		gap: 20px;
+		margin-top: 30px;
+		@include media($mobile) {
+			margin-top: unset;
+			gap: 24px;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		overflow: hidden;
+		@include media($tablet, min) {
+			border-bottom: 2px solid var(--color-border);
+		}
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__item {
+	}
+
+	&__footer-descr {
+		color: var(--color-dark-text);
+		@include media($mobile, min) {
+			@include text-body-l;
+		}
+	}
+
+	&__image {
+		min-height: adapt(330, 200, $mobile);
+		@include media($mobile) {
+			margin-inline: var(--container-padding);
+		}
+	}
+}
+
+.about-approach-item {
+	display: grid;
+	grid-template-columns: 40px 1fr;
+	grid-template-rows: 1fr;
+	gap: 20px;
+	position: relative;
+	color: var(--color-dark-text);
+
+	@include media($tablet, min) {
+		padding: 12px;
+		outline: 1px solid var(--color-border);
+
+		&:nth-child(odd) {
+			padding-left: unset;
+		}
+		&:nth-child(even) {
+			padding-right: unset;
+		}
+	}
+	@include media($tablet) {
+		border-bottom: 1px solid var(--color-dark-section);
+		padding-block: 16px 24px;
+		&:first-child {
+			border-top: 1px solid var(--color-dark-section);
+		}
+		&:last-child {
+			border: none;
+			padding-bottom: unset;
+		}
+	}
+	@include media($mobile) {
+		grid-template-columns: 28px 1fr;
+		gap: 16px 12px;
+		padding-block: 16px;
+	}
+	&__number {
+		color: var(--color-accent);
+	}
+
+	&__title {
+		color: inherit;
+	}
+
+	&__descr {
+		grid-column: 2;
+	}
+}

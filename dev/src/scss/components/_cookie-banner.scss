@@ -8,12 +8,13 @@
 	box-shadow: none;
 }
 .cookie-banner-container {
-	border: 2px solid var(--color-accent);
-	background: var(--color-light);
-	padding: adapt(20, 10, $mobile);
+	border: 1px solid var(--color-border);
+	background: var(--color-light-card);
+	padding: adapt(24, 20, $mobile);
 	display: flex;
+	flex-direction: column;
 	max-width: 852px;
-	gap: adapt(40, 20, $mobile);
+	gap: 20px;
 
 	@include media($mobile) {
 		max-width: 100%;
@@ -23,30 +24,31 @@
 }
 .cookie-banner-content {
 	@include flex-column;
-	gap: adapt(20, 10);
+	gap: 8px;
+	flex: 1;
 }
 .cookie-banner-title {
-	@include text-body-l;
+	@include title-4;
 
 	@include media($mobile) {
-		@include text-body-s;
+		@include title-4-mob;
 	}
-	display: flex;
-	gap: 12px;
-	align-items: center;
-	margin-bottom: 0;
+	//display: flex;
+	//gap: 12px;
+	//align-items: center;
+	//margin-bottom: 0;
 
-	&::after {
-		content: "";
-		@include square(20px);
-		@include bgimg(url("../../../public//images/icons/cookie-icon.svg"));
-	}
+	//&::after {
+	//	content: "";
+	//	@include square(20px);
+	//	@include bgimg(url("../../../public//images/icons/cookie-icon.svg"));
+	//}
 }
 .cookie-banner-description {
-	@include text-body-l;
+	@include text-body-s;
 
 	@include media($mobile) {
-		@include text-body-s;
+		@include text-body-m-mob;
 	}
 	& > *:last-child {
 		margin-bottom: 0;
@@ -59,31 +61,36 @@
 	}
 
 	a {
-		color: var(--color-accent);
-		transition: all 0.3s ease-in-out;
+		@include text-body-s;
+		font-weight: 600;
+		@include media($mobile) {
+			@include text-body-m-mob;
+		}
 		text-decoration: none;
-		@include hover-link(var(--color-accent));
+		color: var(--color-accent);
 	}
 }
 .cookie-actions {
 	width: 100%;
 	flex-shrink: 0;
-	justify-content: center;
 	margin: unset;
-	@include media($mobile, min) {
-		max-width: 300px;
-	}
-}
-.cookie-actions {
-	@include media($mobile, min) {
-		flex: 0 1 30%;
+	flex-direction: row;
+	justify-content: flex-start;
+	@include media($mobile) {
+		//max-width: 300px;
+		flex-direction: column;
 	}
 }
 .cookie-btn {
 	@include btn;
+	flex: 1;
 	min-width: auto;
-	padding: 12px;
+	padding: 14px;
 	border-radius: 0;
+	flex: 0 1 150px;
+	@include media($mobile) {
+		flex: 1;
+	}
 }
 .cookie-btn-settings {
 	@include btn-outline;
@@ -110,8 +117,8 @@
 	--artcly-cc-toggle-bg-active: var(--color-accent);
 	--artcly-cc-toggle-disabled-bg: var(--color-accent);
 	padding: adapt(20, 10, $mobile);
-	border: 2px solid var(--color-accent);
-	background: var(--color-light);
+	border: 1px solid var(--color-border);
+	background: var(--color-light-card);
 	border-radius: 0;
 	overflow: auto;
 }

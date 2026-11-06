@@ -50,8 +50,11 @@ body {
 	& > main {
 		flex: 1 1 auto;
 	}
+	
 }
-
+.page-template-template-policy .wrapper {
+	overflow: initial;
+}
 .container {
 	max-width: calc(var(--container-width) + (var(--container-padding) * 2));
 	padding-inline: var(--container-padding);

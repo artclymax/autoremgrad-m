@@ -8,7 +8,7 @@ $descr = '';
 
 
 if (!$title || !$descr || !$label) {
-	if (is_tax() || is_product_category()) {
+	if (is_tax()) {
 		$term = get_queried_object();
 		$label = get_field('hero_subtitle', $term) ?? '';
 		$title = $title ?: (get_field('hero_title', $term) ?? '');
@@ -32,18 +32,14 @@ if (!$title || !$descr || !$label) {
 		$descr = $descr ?: (get_field('hero_descr', $page) ?? '');
 
 		if (!$title) {
-			if (is_post_type_archive()) {
-				$title = post_type_archive_title('', false);
-			} else {
-				$title = get_the_title();
-			}
+			$title = get_the_title();
 		}
 	}
 }
 
 if ($title):
 	?>
-	<section class="hero-page hero-page-simple <?php echo esc_attr($class); ?>" id="hero-page-simple">
+	<section class="section hero-page-simple <?php echo esc_attr($class); ?>" id="hero-page-simple">
 		<div class="container hero-page__container">
 			<div class="hero-page__breadcrumbs page-breadcrumbs">
 				<?php if (function_exists('bcn_display')) {

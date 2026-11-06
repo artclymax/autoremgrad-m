@@ -1,0 +1,104 @@
+@use "../tools" as *;
+
+.prices-formation {
+	background: var(--color-dark-section);
+	color: var(--color-light-card);
+	@include media($mobile) {
+		padding-bottom: 24px;
+	}
+	&__container {
+		--width: #{adapt(690, 360, $mobile, $laptop)};
+		--gap: 20px;
+		@include media($mobile) {
+			gap: 24px;
+		}
+	}
+
+	&__image {
+		min-height: adapt(815, 300, $finishBreakpoint, $tablet);
+		@include media($mobile) {
+			order: 2;
+		}
+	}
+
+	&__content {
+		padding-block: var(--section-padding-05);
+		@include flex-column;
+		gap: 20px;
+
+		@include media($mobile) {
+			padding-bottom: unset;
+			gap: 16px;
+		}
+	}
+	.section-header {
+		position: relative;
+		padding-bottom: 20px;
+		@include media($mobile) {
+			padding-bottom: 24px;
+		}
+		&__title {
+			color: var(--color-light-card);
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 1px;
+			width: 100vw;
+			background: var(--color-light-card);
+		}
+	}
+	&__list {
+		@include media($mobile) {
+			margin-top: -16px;
+		}
+	}
+
+	&__item {
+	}
+
+	&__footer-descr {
+	}
+
+	&__btn {
+	}
+}
+.prices-formation-item {
+	padding-block: 20px;
+	display: grid;
+	grid-template-columns: 40px 1fr;
+	gap: 20px;
+	align-items: center;
+	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		width: 100vw;
+		background: var(--color-light-card);
+
+		@include media($mobile) {
+			width: 100%;
+		}
+	}
+	@include media($mobile) {
+		grid-template-columns: 28px 1fr;
+		gap: 16px 12px;
+		padding-block: 16px;
+	}
+	&__item-number {
+		color: var(--color-accent);
+	}
+
+	&__item-title {
+		color: inherit;
+	}
+
+	&__item-descr {
+		grid-column: 2;
+	}
+}

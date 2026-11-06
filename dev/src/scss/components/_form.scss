@@ -2,7 +2,19 @@
 .form-field-hidden {
 	display: none;
 }
-
+.form-note {
+	@include media($mobile, min) {
+		@include text-body-s;
+	}
+	@include media($mobile) {
+		@include text-body-s-mob;
+	}
+}
+.form-wrapper-modal {
+	.form-field__label {
+		color: var(--color-dark-text);
+	}
+}
 .form-wrapper {
 	display: grid;
 	gap: 20px;

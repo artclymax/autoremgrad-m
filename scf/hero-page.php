@@ -29,6 +29,18 @@ if (function_exists('acf_add_local_field_group')) {
 				'type' => 'wysiwyg',
 			],
 			[
+				'key' => 'field_hero_page_btn',
+				'label' => 'Акцентная кнопка',
+				'name' => 'hero_btn',
+				'type' => 'link',
+			],
+			[
+				'key' => 'field_hero_page_link',
+				'label' => 'Ссылка',
+				'name' => 'hero_link',
+				'type' => 'link',
+			],
+			[
 				'key' => 'field_hero_page_tab_image',
 				'label' => 'Медиа',
 				'name' => 'hero_tab_image',
@@ -58,12 +70,50 @@ if (function_exists('acf_add_local_field_group')) {
 					'operator' => '!=',
 					'value' => 'archive-services.php',
 				],
+				[
+					'param' => 'post_template',
+					'operator' => '!=',
+					'value' => 'template-policy.php',
+				],
 
 				//[
 				//	'param' => 'post_template',
 				//	'operator' => '=',
 				//	'value' => 'archive-project.php',
 				//],
+			],
+		],
+	]);
+	acf_add_local_field_group([
+		'key' => 'group_hero_page_policy',
+		'title' => 'Первый экран',
+		'fields' => [
+			[
+				'key' => 'field_hero_page_label',
+				'label' => 'Надзаголовок',
+				'name' => 'hero_label',
+				'type' => 'text',
+			],
+			[
+				'key' => 'field_hero_page_title',
+				'label' => 'Заголовок',
+				'name' => 'hero_title',
+				'type' => 'text',
+			],
+			[
+				'key' => 'field_hero_page_version',
+				'label' => 'Версия политики',
+				'name' => 'hero_version',
+				'type' => 'text',
+			],
+		],
+		'location' => [
+			[
+				[
+					'param' => 'post_template',
+					'operator' => '=',
+					'value' => 'template-policy.php',
+				],
 			],
 		],
 	]);

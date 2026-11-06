@@ -1,11 +1,13 @@
 <?php
 $page = $args['page'] ?? get_queried_object();
-$label = get_field('how_we_work_label', $page) ?? '';
-$title = get_field('how_we_work_title', $page) ?? '';
-$descr = get_field('how_we_work_descr', $page) ?? '';
-$link = get_field('how_we_work_link', $page) ?? [];
-$steps = get_field('how_we_work_steps', $page) ?? [];
-$image = get_field('how_we_work_image', $page) ?? null;
+$default_page = 'option';
+
+$label = get_field('how_we_work_label', $page) ?: get_field('how_we_work_label', $default_page) ?? '';
+$title = get_field('how_we_work_title', $page) ?: get_field('how_we_work_title', $default_page) ?? '';
+$descr = get_field('how_we_work_descr', $page) ?: get_field('how_we_work_descr', $default_page) ?? '';
+$link = get_field('how_we_work_link', $page) ?: get_field('how_we_work_link', $default_page) ?? [];
+$steps = get_field('how_we_work_steps', $page) ?: get_field('how_we_work_steps', $default_page) ?? [];
+$image = get_field('how_we_work_image', $page) ?: get_field('how_we_work_image', $default_page) ?? null;
 ?>
 
 <?php if ($title || $descr || !empty($steps)): ?>

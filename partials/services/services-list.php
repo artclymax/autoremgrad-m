@@ -1,9 +1,11 @@
 <?php
 $page = $args['page'] ?? get_page_by_path('services', OBJECT, 'page');
+
 $label = get_field('archive_services_list_label', $page) ?? '';
 $title = get_field('archive_services_list_title', $page) ?? '';
 $descr = get_field('archive_services_list_descr', $page) ?? '';
 $link = get_field('archive_services_list_link', $page) ?? [];
+$selected_ids = get_field('archive_services_list_selected', $page) ?? [];
 $selected_cats = get_field('archive_services_list_selected_cats', $page) ?? [];
 
 $args = [
@@ -13,7 +15,13 @@ $args = [
 	'order' => 'ASC',
 ];
 
-if (!empty($selected_cats)) {
+// Приоритет 1: конкретные выбранные записи
+if (!empty($selected_ids)) {
+	$args['post__in'] = (array) $selected_ids;
+	$args['orderby'] = 'post__in';
+}
+// Приоритет 2: фильтр по категориям (если записи не выбраны)
+elseif (!empty($selected_cats)) {
 	$cat_ids = [];
 	foreach ((array) $selected_cats as $cat) {
 		$cat_ids[] = is_object($cat) ? $cat->term_id : $cat;
@@ -62,32 +70,30 @@ $services_query = new WP_Query($args);
 				</div>
 			</div>
 
-			<?php if ($services_query->have_posts()): ?>
-				<div class="services-list__grid">
-					<?php while ($services_query->have_posts()):
-						$services_query->the_post();
-						$service_id = get_the_ID();
-						$service_link = get_permalink();
-						$service_title = get_the_title();
-						$service_excerpt = get_the_excerpt();
-						?>
-						<a class="services-list__card services-list-card" href="<?php echo esc_url($service_link); ?>">
-							<div class="services-list-card__content">
-								<h3 class="services-list-card__title title-4">
-									<?php echo esc_html($service_title); ?>
-								</h3>
+			<div class="services-list__grid">
+				<?php while ($services_query->have_posts()):
+					$services_query->the_post();
+					$service_id = get_the_ID();
+					$service_link = home_url('/services-cat/legkovye-avtomobili/');
+					$service_title = get_the_title();
+					$service_excerpt = get_the_excerpt();
+					?>
+					<a class="services-list__card services-list-card" href="<?php echo esc_url($service_link); ?>">
+						<div class="services-list-card__content">
+							<h3 class="services-list-card__title title-3">
+								<?php echo esc_html($service_title); ?>
+							</h3>
 
-								<?php if ($service_excerpt): ?>
-									<div class="services-list-card__descr descr">
-										<?php echo wp_kses_post(mx_fix_orphans($service_excerpt)); ?>
-									</div>
-								<?php endif; ?>
-							</div>
-						</a>
-					<?php endwhile;
-					wp_reset_postdata(); ?>
-				</div>
-			<?php endif; ?>
+							<?php if ($service_excerpt): ?>
+								<div class="services-list-card__descr descr">
+									<?php echo wp_kses_post(mx_fix_orphans($service_excerpt)); ?>
+								</div>
+							<?php endif; ?>
+						</div>
+					</a>
+				<?php endwhile;
+				wp_reset_postdata(); ?>
+			</div>
 		</div>
 	</section>
 <?php endif; ?>

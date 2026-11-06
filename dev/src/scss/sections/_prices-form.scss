@@ -1,0 +1,49 @@
+@use "../tools" as *;
+
+.prices-form {
+	padding-bottom: unset;
+	@include media($mobile) {
+		padding-top: var(--section-padding);
+	}
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			padding: unset;
+		}
+	}
+
+	&__left {
+		position: relative;
+		z-index: 1;
+		background: var(--color-accent);
+		color: var(--color-light-card);
+		padding: 24px 14px;
+		@include flex-column;
+		min-height: adapt(604, 302);
+		padding-top: adapt(128, 24, $mobile);
+	}
+	.section-header {
+		position: relative;
+		z-index: 2;
+		& > * {
+			color: inherit;
+		}
+	}
+	&__image {
+		@include image-abs;
+		z-index: 1;
+	}
+
+	&__right {
+		background: var(--color-light-card);
+		@include flex-column;
+		justify-content: center;
+		padding: 24px 10px;
+	}
+	.form-field__label {
+		color: var(--color-dark-text);
+	}
+}

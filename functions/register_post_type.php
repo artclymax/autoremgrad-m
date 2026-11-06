@@ -70,7 +70,7 @@ add_action('init', function () {
 		'show_ui' => true,
 		'show_in_menu' => true,
 		'show_in_rest' => true,
-		'rewrite' => ['slug' => 'projects'],
+		'rewrite' => ['slug' => 'projects-cat'],
 	]);
 
 	// Таксономия "Типы работ" (теги, неиерархическая)
@@ -118,7 +118,7 @@ add_action('init', function () {
 		'menu_icon' => 'dashicons-camera',
 		'supports' => ['title', 'editor', 'thumbnail'],
 		'rewrite' => ['slug' => 'procects'],
-		'has_archive' => true,
+		'has_archive' => 'projects',
 		'taxonomies' => ['projects_cat', 'projects_tag'],
 		'menu_position' => 10
 	]);
@@ -139,7 +139,7 @@ add_action('init', function () {
 			'not_found' => 'Отзывы не найдены',
 			'not_found_in_trash' => 'В корзине отзывов не найдено',
 		],
-		'public' => false,
+		'public' => true,
 		'show_ui' => true,
 		'show_in_menu' => true,
 		'show_in_rest' => true,

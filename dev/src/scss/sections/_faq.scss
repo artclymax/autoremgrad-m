@@ -78,7 +78,7 @@
 			position: absolute;
 			top: 50%;
 			left: 0;
-			width: 24px;
+			width: adapt(24, 16, $mobile, $tablet);
 			height: 2px;
 			background: var(--color-accent);
 			transition: all 0.3s;

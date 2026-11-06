@@ -6,7 +6,7 @@
 }
 .custom-select {
 	position: relative;
-	z-index: 20;
+	//z-index: 1;
 	flex-shrink: 0;
 	color: var(--color-second-text);
 
@@ -65,7 +65,7 @@
 		background: var(--color-light-card);
 
 		position: absolute;
-		z-index: 5;
+		z-index: 6;
 		bottom: 0;
 		left: 0;
 		width: 100%;

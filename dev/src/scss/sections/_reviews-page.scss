@@ -1,0 +1,48 @@
+@use "../tools" as *;
+
+.reviews-page {
+	&__container {
+		@include flex-column;
+		gap: 40px;
+	}
+
+	&__grid {
+		display: grid;
+		gap: 20px;
+	}
+	&__card {
+	}
+	&__load-more {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__load-more-btn {
+		@include media($mobile, min) {
+			width: initial;
+			max-width: initial;
+		}
+	}
+}
+.reviews-card {
+	@include flex-column;
+	gap: adapt(20, 12, $mobile);
+	@include icon(url("../../../public/images/icons/qoute-icon--wide.svg"), 70px);
+	@include media($mobile) {
+		padding-top: 24px;
+		border-top: 1px solid var(--color-dark-section);
+	}
+	&__text {
+		color: var(--color-dark-text);
+		@include media($mobile, min) {
+			@include text-body-l;
+		}
+		@include media($mobile) {
+			@include title-4-mob;
+		}
+	}
+
+	&__author {
+		color: var(--color-second-text);
+	}
+}

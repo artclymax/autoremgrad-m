@@ -1,0 +1,94 @@
+@use "../tools" as *;
+
+.page-contacts {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px 20px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__left {
+		@include flex-column;
+		gap: adapt(40, 24, $mobile);
+	}
+
+	.section-header {
+		&__title {
+			@include media($mobile) {
+				@include title-1-mob;
+			}
+		}
+	}
+	&__header {
+	}
+
+	&__breadcrumbs {
+		@include mb(adapt(40, 20, $mobile));
+	}
+
+	&__info {
+		@include flex-column;
+	}
+
+	&__info-item {
+		padding-block: 20px 10px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		border-top: 1px solid var(--color-border);
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			gap: 8px;
+			border-color: var(--color-dark-text);
+			padding-block: 16px;
+
+			&:last-child {
+				border-bottom: 1px solid var(--color-dark-text);
+			}
+		}
+	}
+
+	&__info-label {
+		@include text-menu;
+		text-transform: uppercase;
+
+		@include media($mobile)  {
+			@include text-label-mob;
+		}
+	}
+
+	&__info-text {
+		color: var(--color-dark-text);
+		@include media($mobile)  {
+			@include title-4-mob;
+		}
+	}
+
+	&__phones {
+	}
+
+	&__phone {
+	}
+
+	&__address {
+	}
+
+	&__hours {
+	}
+
+	&__btn {
+	}
+
+	&__map {
+		min-height: 300px;
+		iframe {
+			height: 100%;
+			width: 100%;
+			border: none;
+		}
+	}
+}

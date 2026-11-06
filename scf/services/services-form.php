@@ -35,7 +35,7 @@ acf_add_local_field_group([
 			'name' => 'services_form_image',
 			'type' => 'image',
 		],
-		
+
 		[
 			'key' => 'field_services_form_tab_shortcode',
 			'label' => 'Форма',
@@ -62,5 +62,80 @@ acf_add_local_field_group([
 			]
 		]
 	],
+]);
+acf_add_local_field_group([
+	'key' => 'group_services_form_category',
+	'title' => 'Форма подбора услуги',
+	'fields' => [
+
+		[
+			'key' => 'field_services_form_accordion_content',
+			'label' => 'Форма подбора услуги',
+			'name' => '',
+			'type' => 'accordion',
+			'placement' => 'top',
+			'endpoint' => 0,
+		],
+
+		[
+			'key' => 'field_services_form_tab_content',
+			'label' => 'Контент',
+			'name' => '',
+			'type' => 'tab',
+			'placement' => 'top',
+			'endpoint' => 0,
+		],
+		[
+			'key' => 'field_services_form_label',
+			'label' => 'Верхняя надпись',
+			'name' => 'services_form_label',
+			'type' => 'text',
+		],
+		[
+			'key' => 'field_services_form_title',
+			'label' => 'Заголовок',
+			'name' => 'services_form_title',
+			'type' => 'text'
+		],
+		[
+			'key' => 'field_services_form_descr',
+			'label' => 'Описание',
+			'name' => 'services_form_descr',
+			'type' => 'wysiwyg',
+		],
+		[
+			'key' => 'field_services_form_image',
+			'label' => 'Изображение (левая часть)',
+			'name' => 'services_form_image',
+			'type' => 'image',
+		],
+
+		[
+			'key' => 'field_services_form_tab_shortcode',
+			'label' => 'Форма',
+			'name' => '',
+			'type' => 'tab',
+			'placement' => 'top',
+			'endpoint' => 0,
+		],
+		[
+			'key' => 'field_services_form_shortcode',
+			'label' => 'Шорткод формы',
+			'name' => 'services_form_shortcode',
+			'type' => 'textarea',
+			'rows' => 2,
+			'instructions' => 'Вставьте шорткод формы',
+		],
+	],
+	'location' => [
+		[
+			[
+				'param' => 'taxonomy',
+				'operator' => '==',
+				'value' => 'services_cat'
+			]
+		]
+	],
+	'menu_order' => 5
 ]);
 ?>

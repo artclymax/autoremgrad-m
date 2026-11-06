@@ -26,7 +26,7 @@ $hero_btn = get_field('hero_btn', 'services_cat_' . $term_id) ?? [
 $hero_link = get_field('hero_link', 'services_cat_' . $term_id) ?? [
 	'title' => 'Посмотреть услуги',
 	'url' =>
-		'#services-category-list'
+		'#services-cat-page'
 ];
 
 // Все категории для навигации
@@ -95,7 +95,7 @@ if (is_wp_error($all_categories)) {
 						continue;
 					$is_active = $cat->term_id === $term_id ? ' active-category' : '';
 					?>
-					<a class="hero-services-category-nav__link btn-link <?php echo esc_attr($is_active); ?>"
+					<a class="hero-services-category-nav__link btn-link btn-link--dark <?php echo esc_attr($is_active); ?>"
 						href="<?php echo esc_url($cat_link); ?>">
 						<?php echo esc_html($cat->name); ?>
 					</a>

@@ -43,6 +43,7 @@
 
 	&__image {
 		min-height: adapt(487, 240, $finishBreakpoint, $tablet);
+		--object-pos: top;
 	}
 }
 .how-we-work-step {

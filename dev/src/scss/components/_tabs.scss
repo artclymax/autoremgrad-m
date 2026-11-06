@@ -1,12 +1,12 @@
 @use "../tools" as *;
-//.hints-first-actions__content {
-//	position: relative;
-//}
 
-[data-tab] {
+// Базовое состояние для табов любого уровня (скрыто и схлопнуто)
+[data-tab],
+[data-cat-tab],
+[data-svc-tab] {
 	display: grid;
 	grid-template-rows: 0fr;
-
+	height: 0;
 	opacity: 0;
 	visibility: hidden;
 
@@ -14,15 +14,20 @@
 		grid-template-rows 0.3s ease-in-out,
 		opacity 0.3s ease-in-out,
 		visibility 0.3s ease-in-out;
+
 	will-change: grid-template-rows, opacity;
+
 	> * {
 		overflow: hidden;
 	}
 }
 
-[data-tab].active-tab {
+// Активное состояние для табов любого уровня (раскрыто и видимо)
+[data-tab].active-tab,
+[data-cat-tab].active-cat,
+[data-svc-tab].active-svc {
 	grid-template-rows: 1fr;
-
+	height: initial;
 	opacity: 1;
 	visibility: visible;
 }

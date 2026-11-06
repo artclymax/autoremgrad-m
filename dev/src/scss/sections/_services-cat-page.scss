@@ -1,0 +1,71 @@
+@use "../tools" as *;
+
+.services-cat-page {
+	&__container {
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 0.7fr 1fr;
+		gap: 24px 30px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__left {
+	}
+
+	&__right {
+		@include media($mobile) {
+			border-top: 1px solid var(--color-dark-section);
+		}
+	}
+
+	.faq-item {
+		@include media($mobile, min) {
+			border: none;
+		}
+		&__btn {
+		}
+
+		&__title {
+		}
+
+		&__icon {
+			&::before,
+			&::after {
+				@include media($mobile, min) {
+					background: var(--color-dark-section);
+				}
+			}
+		}
+
+		&__content {
+		}
+
+		&__descr {
+			max-width: 100%;
+		}
+	}
+}
+.faq-item-services {
+	&__actions {
+		display: flex;
+		gap: 20px 40px;
+		flex-wrap: wrap;
+		align-items: center;
+		padding-bottom: 30px;
+	}
+
+	&__btn {
+		@include media($mobile, min) {
+			min-width: 189px;
+			width: unset;
+		}
+	}
+
+	&__link {
+	}
+}

@@ -41,15 +41,23 @@ acf_add_local_field_group([
 			'name' => 'home_about_image',
 			'type' => 'image',
 		],
-
+	],
+	'location' => [
 		[
-			'key' => 'field_home_about_tab_benefits',
-			'label' => 'Преимущества',
-			'name' => '',
-			'type' => 'tab',
-			'placement' => 'top',
-			'endpoint' => 0,
-		],
+			[
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'front-page.php'
+			]
+		]
+	],
+]);
+
+acf_add_local_field_group([
+	'key' => 'group_home_about_benefits',
+	'title' => 'Преимущества',
+	'fields' => [
+
 		[
 			'key' => 'field_home_about_benefits',
 			'label' => 'Список преимуществ',
@@ -86,6 +94,13 @@ acf_add_local_field_group([
 				'param' => 'page_template',
 				'operator' => '==',
 				'value' => 'front-page.php'
+			]
+		],
+		[
+			[
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'page-about.php'
 			]
 		]
 	],

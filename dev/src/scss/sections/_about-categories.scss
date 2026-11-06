@@ -1,0 +1,84 @@
+@use "../tools" as *;
+
+.about-categories {
+	&__container {
+		@include flex-column;
+		gap: adapt(40, 24, $mobile);
+	}
+
+	.section-header {
+		@include media($mobile, min) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: end;
+			gap: adapt(20, 16, $mobile);
+		}
+
+		&__label {
+			grid-column: 1 / -1;
+		}
+
+		&__title {
+		}
+	}
+
+	&__grid {
+		gap: 32px 20px;
+	}
+
+	&__card {
+	}
+}
+
+.categories-card {
+	@include reset-link;
+	@include flex-column;
+	gap: 20px;
+
+	@include hover {
+		.categories-card__image img {
+			transform: scale(1);
+		}
+	}
+
+	@include media($mobile) {
+		padding-top: 16px;
+		border-top: 1px solid var(--color-dark-section);
+	}
+
+	&__image {
+		height: 195px;
+		overflow: hidden;
+		--object-pos: top;
+
+		img {
+			transition: all 0.3s ease-in-out;
+			transform: scale(1.1);
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 10px;
+		flex-grow: 1;
+
+		@include media($mobile) {
+			gap: 12px;
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+
+	&__link {
+		margin-top: auto;
+		padding-top: 6px;
+
+		@include media($mobile) {
+			padding-block: 14px;
+		}
+	}
+}

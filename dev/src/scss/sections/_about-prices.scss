@@ -1,0 +1,68 @@
+@use "../tools" as *;
+
+.about-prices {
+	background: var(--color-dark-section);
+	@include flex-column;
+	gap: adapt(40, 24, $mobile);
+	color: var(--color-light-card);
+
+	&__header-container {
+	}
+
+	.section-header {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: adapt(20, 16, $mobile);
+		align-items: end;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+
+		&__label {
+			grid-column: 1 / -1;
+		}
+
+		&__title {
+			color: var(--color-light-card);
+		}
+		&__descr {
+			color: var(--color-light-card);
+		}
+	}
+
+	&__container {
+		--width: #{adapt(690, 360, $mobile, $laptop)};
+		--gap: 20px;
+		@include media($mobile) {
+			gap: 24px;
+		}
+	}
+
+	&__image {
+		min-height: adapt(456, 240, $finishBreakpoint, $tablet);
+		@include media($mobile) {
+			order: 2;
+		}
+	}
+
+	&__right {
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__list {
+		@include media($mobile) {
+			border-top: 1px solid var(--color-light-card);
+		}
+	}
+
+	&__item {
+	}
+
+	&__footer-descr {
+		@include media($mobile, min) {
+			@include text-body-l;
+		}
+	}
+}

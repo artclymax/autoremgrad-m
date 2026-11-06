@@ -27,19 +27,18 @@ $modals = get_field('modals', $page) ?? [];
 				<!-- CLOSE-BTN -->
 				<button class="modal__close-btn modal-close-btn" data-modal-close aria-label="Закрыть модальное окно"
 					type="button">
-					<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
-							d="M20.3125 7.38816L18.6118 5.6875L13 11.2993L7.38816 5.6875L5.6875 7.38816L11.2993 13L5.6875 18.6118L7.38816 20.3125L13 14.7007L18.6118 20.3125L20.3125 18.6118L14.7007 13L20.3125 7.38816Z"
+							d="M19.3848 2.41406L11.6074 10.1914L19.3867 17.9707L17.9727 19.3848L10.1934 11.6055L2.41406 19.3848L1 17.9707L8.7793 10.1914L1.00195 2.41406L2.41602 1L10.1934 8.77734L17.9707 1L19.3848 2.41406Z"
 							fill="currentColor" />
 					</svg>
 				</button>
 				<!-- BODY -->
 				<div class="modal__body">
 					<div class="modal__wrapper">
-
 						<div class="modal__content">
 							<?php if ($label): ?>
-								<span class="modal__label">
+								<span class="modal__label label">
 									<?php echo esc_html($label); ?>
 								</span>
 							<?php endif; ?>
@@ -59,7 +58,6 @@ $modals = get_field('modals', $page) ?? [];
 								<?php echo do_shortcode($shortcode) ?>
 							</div>
 						<?php endif; ?>
-
 					</div>
 				</div>
 			</div>

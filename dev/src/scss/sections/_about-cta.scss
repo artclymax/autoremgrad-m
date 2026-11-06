@@ -1,0 +1,67 @@
+@use "../tools" as *;
+
+.about-cta {
+	@include media($mobile) {
+		background: var(--color-dark-section);
+		padding-block: 24px;
+	}
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
+	}
+
+	&__left {
+		background: var(--color-dark-section);
+		color: var(--color-light-card);
+		padding: var(--section-padding-05) 20px;
+		@include flex-column;
+		gap: 20px;
+
+		@include media($mobile) {
+			padding: unset;
+			gap: 24px;
+		}
+	}
+
+	.section-header {
+		&__title {
+			@include media( $mobile) {
+				@include title-2-mob;
+				};
+		}
+		&__title,
+		&__descr {
+			color: inherit;
+		}
+	}
+
+	&__btn {
+	}
+
+	&__phone {
+		@include flex-column;
+		gap: 10px;
+		align-items: start;
+		@include media($mobile) {
+			gap: 0;
+		}
+	}
+
+	&__phone-text {
+	}
+
+	&__phone-link {
+		@include media($mobile) {
+			padding-block: 10px;
+		}
+	}
+
+	&__right {
+		min-height: adapt(455, 240);
+	}
+}

@@ -1,0 +1,180 @@
+@use "../tools" as *;
+/*
+.policy-page {
+	padding-bottom: var(--section-padding);
+
+	&__container {
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 268px 1fr;
+		gap: adapt(115, 20, $tablet, $laptop-sm);
+	}
+
+	&__sidebar {
+	}
+
+	&__nav {
+	}
+
+	&__content {
+		@include flex-column;
+		gap: var(--section-padding-025);
+	}
+
+	&__back-to-top {
+	}
+}
+.policy-nav {
+	&__item {
+	}
+
+	&__link {
+	}
+}
+.policy-section {
+	&:not(:last-child) {
+		padding-bottom: var(--section-padding-025);
+		border-bottom: 1px solid var(--color-border);
+	}
+	&__title {
+	}
+
+	&__content {
+	}
+}
+.btn-link--up {
+}
+*/
+
+.policy-page {
+	padding-bottom: var(--section-padding);
+
+	&__mobile-select {
+		display: none;
+		margin-bottom: 32px;
+
+		@include media($tablet) {
+			display: block;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 285px 1fr;
+		gap: 24px adapt(115, 20, $tablet, $laptop-sm);
+		align-items: start;
+
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__sidebar {
+		position: sticky;
+		top: 120px; // Отступ от верха (высота header + воздух)
+		align-self: start;
+		height: fit-content;
+		max-height: calc(100vh - 120px);
+		overflow-y: auto;
+
+		@include media($tablet) {
+			display: none;
+		}
+	}
+	&__right {
+		@include flex-column;
+		gap: 40px;
+	}
+	&__content {
+		@include flex-column;
+		gap: adapt(32, 24, $mobile);
+	}
+
+	&__back-to-top {
+	}
+
+	.custom-select {
+		color: var(--color-dark-text);
+		&__select-field {
+			padding: 14px 16px;
+		}
+		&__btn {
+			padding: 14px 16px;
+		}
+	}
+}
+
+// Навигация (десктоп)
+.policy-nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	border-left: 1px solid var(--color-border);
+
+	&__item {
+		margin-bottom: 0;
+	}
+
+	&__link {
+		position: relative;
+		@include text-menu;
+		display: block;
+		color: inherit;
+		padding: 12px 16px;
+		text-decoration: none;
+		transition:
+			color 0.2s,
+			border-color 0.2s;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 2px;
+			height: 100%;
+			background: var(--color-accent);
+			opacity: 0;
+			transition: all 0.3s;
+		}
+		&:hover {
+			color: var(--color-accent);
+		}
+
+		&.active {
+			color: var(--color-dark-text);
+
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.policy-select {
+}
+
+// Секции контента
+.policy-section {
+	@include flex-column;
+	gap: 16px;
+
+	&:not(:last-child) {
+		padding-bottom: adapt(32, 40, $mobile);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	&:last-of-type {
+		border-bottom: none;
+	}
+
+	&__title {
+		@include media($mobile) {
+			@include title-4;
+		}
+	}
+
+	&__content {
+	}
+}

@@ -24,16 +24,21 @@ if (is_tax()) {
 	if (!empty($args['page'])) {
 		$term = get_page_by_path($args['page'], OBJECT, 'page');
 	}
-	$label = get_field('hero_label', $term) ?? '';
+	$page = get_page_by_path(get_taxonomy($term->taxonomy)->object_type[0], OBJECT, 'page');
+	$label = get_field('hero_label', $term) ?: get_field('hero_label', $page) ?? '';
 	$title = get_field('hero_title', $term) ?? '';
-	$descr = get_field('hero_descr', $term) ?: $term->description ?? '';
-	$image = get_field('hero_image', $term) ?: get_field('hero_product_cat_image', 'option') ?? '';
+	$descr = get_field('hero_descr', $term) ?: $term->description ?: get_field('hero_descr', $page) ?? '';
+	$image = get_field('hero_image', $term) ?: get_field('hero_product_cat_image', 'option') ?: get_field('hero_image', $page) ?? '';
+	$btn = get_field('hero_btn', $term) ?: get_field('hero_product_cat_btn', 'option') ?? '';
+	$link = get_field('hero_link', $term) ?: get_field('hero_product_cat_link', 'option') ?? '';
 
 } else {
 	$label = get_field('hero_label', $page) ?? '';
 	$title = get_field('hero_title', $page) ?? '';
 	$descr = get_field('hero_descr', $page) ?? '';
 	$image = get_field('hero_image', $page) ?? '';
+	$btn = get_field('hero_btn', $page) ?? '';
+	$link = get_field('hero_link', $page) ?? '';
 
 }
 
@@ -62,21 +67,24 @@ if ($title || $descr || ($image && is_array($image) && !empty($image['ID']))):
 							} ?>
 						</div>
 					</div>
-					<?php if (!empty($label)): ?>
-						<p class="hero-page__label label">
-							<?php echo esc_html($label) ?>
-						</p>
-					<?php endif; ?>
-					<?php if ($title): ?>
-						<h1 class="hero-page__title title-1">
-							<?php echo esc_html($title); ?>
-						</h1>
-					<?php endif; ?>
-					<?php if ($descr): ?>
-						<div class="hero-page__descr descr">
-							<?php echo wp_kses_post($descr); ?>
-						</div>
-					<?php endif; ?>
+					<?php get_template_part('partials/section-header', null, [
+						'label' => $label,
+						'title' => $title,
+						'descr' => $descr,
+						'title_tag' => 'h1'
+					]); ?>
+					<div class="hero-page__actions">
+						<?php if (!empty($btn)): ?>
+							<a class="hero-page__btn btn" href="<?= esc_attr($btn['url']) ?>">
+								<?= esc_attr($btn['title']) ?>
+							</a>
+						<?php endif; ?>
+						<?php if (!empty($link)): ?>
+							<a class="hero-page__link btn-link" href="<?= esc_attr($link['url']) ?>">
+								<?= esc_attr($link['title']) ?>
+							</a>
+						<?php endif; ?>
+					</div>
 				</div>
 			</div>
 			<?php if (!empty($image)): ?>

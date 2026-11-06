@@ -32,9 +32,9 @@
 //@use "components/_cf-select.scss";
 //@use "components/_running-line.scss";
 //@use "components/_scroll-to-top.scss";
-//@use "components/_modal.scss";
-//@use "components/_tabs.scss";
-//@use "components/_cookie-banner.scss";
+@use "components/_modal.scss";
+@use "components/_tabs.scss";
+@use "components/_cookie-banner.scss";
 //@use "components/_cookie-banner-2.scss";
 //@use "components/_cookie-banner-3.scss";
 //@use "components/_wp-block.scss";
@@ -65,8 +65,8 @@
 @use "sections/_header.scss";
 @use "sections/_footer.scss";
 //@use "sections/_footer.scss";
-//@use "sections/_hero-page.scss";
-//@use "sections/_hero-404.scss";
+@use "sections/_hero-page.scss";
+@use "sections/_hero-404.scss";
 
 // home
 @use "sections/_home-hero.scss";
@@ -86,6 +86,28 @@
 @use "sections/_services-list.scss";
 @use "sections/_services-form.scss";
 @use "sections/_hero-services-cat.scss";
+@use "sections/_services-cat-page.scss";
+
+// prices
+@use "sections/_prices-page.scss";
+@use "sections/_prices-formation.scss";
+@use "sections/_prices-form.scss";
+
+// about
+@use "sections/_about-benefits.scss";
+@use "sections/_about-page.scss";
+@use "sections/_about-prices.scss";
+@use "sections/_about-approach.scss";
+@use "sections/_about-categories.scss";
+@use "sections/_about-cta.scss";
+
+@use "sections/_projects-page.scss";
+
+@use "sections/_reviews-page.scss";
+@use "sections/_page-contacts.scss";
+
+@use "sections/_page-policy.scss";
+
 
 #wpadminbar {
 	position: fixed;

@@ -20,6 +20,12 @@ add_action('acf/init', function () {
 		'title' => 'Страница 404',
 		'fields' => array(
 			array(
+				'key' => 'field_page_404_label',
+				'name' => 'page_404_label',
+				'label' => 'Надзаголовок',
+				'type' => 'text',
+			),
+			array(
 				'key' => 'field_page_404_title',
 				'name' => 'page_404_title',
 				'label' => 'Заголовок',
@@ -37,18 +43,18 @@ add_action('acf/init', function () {
 				'label' => 'Кнопка',
 				'type' => 'link',
 			),
-			array(
-				'key' => 'field_page_404_btn_second',
-				'name' => 'page_404_btn_second',
-				'label' => 'Кнопка вторая',
-				'type' => 'link',
-			),
 			//array(
-			//	'key' => 'field_page_404_image',
-			//	'name' => 'page_404_image',
-			//	'label' => 'Картинка',
-			//	'type' => 'image',
+			//	'key' => 'field_page_404_btn_second',
+			//	'name' => 'page_404_btn_second',
+			//	'label' => 'Кнопка вторая',
+			//	'type' => 'link',
 			//),
+			array(
+				'key' => 'field_page_404_image',
+				'name' => 'page_404_image',
+				'label' => 'Картинка',
+				'type' => 'image',
+			),
 		),
 		'location' => array(
 			array(

@@ -7,7 +7,7 @@
 		padding-bottom: 24px;
 	}
 	&__container {
-		--width: 590px;
+		--width: 600px;
 		--gap: #{adapt(102, 20, $tablet)};
 		@include media($mobile) {
 			gap: 40px;

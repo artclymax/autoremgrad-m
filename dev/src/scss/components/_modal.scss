@@ -8,7 +8,7 @@
 	right: 0;
 	height: 100dvh;
 	z-index: 1000;
-	background: rgba(#18222c, 0.75);
+	background: rgba(#202426, 0.55);
 	backdrop-filter: blur(15px); //50
 	display: flex;
 	justify-content: center;
@@ -83,11 +83,10 @@
 .modal {
 	&__box {
 		@include bgimg(var(--bg-url), cover);
-		background-color: var(--color-white);
-		border-radius: 8px;
+		background-color: var(--color-light-card);
 
-		padding: adapt(48, 20, $mobile);
-		max-width: 840px;
+		padding: adapt(40, 16, $mobile);
+		max-width: 640px;
 		width: 100%;
 
 		@include flex-column;
@@ -96,20 +95,21 @@
 		@include media($mobile) {
 			//max-width: 420px;
 			border-radius: 0;
+			padding: 40px 16px 24px;
 		}
 
 		.modal-close-btn {
 			opacity: 1;
-			@include square(44px);
-			padding: 8px;
+			@include square(48px);
+			padding: 12px;
 			position: absolute;
-			top: adapt(28, 8, $mobile);
-			right: adapt(20, 8, $mobile);
+			top: adapt(20, 16, $mobile);
+			right: adapt(20, 12, $mobile);
 			margin-left: auto;
 			z-index: 5;
-			background: var(--color-light);
-			border-radius: 4px;
-			color: var(--color-dark);
+			//background: var(--color-light);
+			//border-radius: 4px;
+			color: var(--color-dark-text);
 		}
 	}
 
@@ -123,29 +123,25 @@
 		@include flex-column;
 		width: 100%;
 		gap: adapt(32, 24);
-
 	}
 
 	&__content {
 		@include flex-column;
-		gap: 12px;
+		gap: adapt(16, 12, $mobile);
 	}
 	&__label {
-		font-size: 14px;
-		font-weight: 600;
-		text-transform: uppercase;
 		color: var(--color-accent);
 		padding-right: 40px;
 
-		
+		margin-bottom: 16px;
 		@include media($mobile) {
-			padding-bottom: 12px;
 		}
 	}
 	&__title {
 		//text-align: center;
-		color: var(--color-dark);
-		padding-right: 40px;
+		text-wrap: balance;
+		color: var(--color-dark-text);
+		//padding-right: 40px;
 		@include media($mobile) {
 			//margin-top: 44px;
 			//@include title-2;

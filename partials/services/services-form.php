@@ -1,11 +1,20 @@
 <?php
 $page = $args['page'] ?? get_page_by_path('services', OBJECT, 'page');
+
 $label = get_field('services_form_label', $page) ?? '';
 $title = get_field('services_form_title', $page) ?? '';
 $descr = get_field('services_form_descr', $page) ?? '';
 $image = get_field('services_form_image', $page) ?? null;
 $shortcode = get_field('services_form_shortcode', $page) ?? '';
-
+if (is_tax()) {
+	$term = get_queried_object();
+	$term_id = $term->term_id;
+	$label = get_field('services_form_label', 'services_cat_' . $term_id) ?: get_field('services_form_label', $page) ?? '';
+	$title = get_field('services_form_title', 'services_cat_' . $term_id) ?: get_field('services_form_title', $page) ?? '';
+	$descr = get_field('services_form_descr', 'services_cat_' . $term_id) ?: get_field('services_form_descr', $page) ?? '';
+	$image = get_field('services_form_image', 'services_cat_' . $term_id) ?: get_field('services_form_image', $page) ?? null;
+	$shortcode = get_field('services_form_shortcode', 'services_cat_' . $term_id) ?: get_field('services_form_shortcode', $page) ?? '';
+}
 ?>
 
 <?php if ($title || $descr || $shortcode): ?>

@@ -1,0 +1,62 @@
+@use "../tools" as *;
+
+.about-page {
+	padding-top: var(--section-padding);
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
+	}
+
+	&__left {
+		@include flex-column;
+		gap: 20px;
+		@include media($mobile) {
+			gap: 24px;
+		}
+	}
+
+	&__title-2 {
+		margin-top: auto;
+		@include media($mobile, min) {
+			padding-top: 20px;
+			border-top: 1px solid var(--color-dark-section);
+		}
+		@include media($mobile) {
+			@include title-3-mob;
+		}
+	}
+
+	&__link {
+	}
+
+	&__right {
+		display: grid;
+		gap: 20px;
+		@include media($mobile, min) {
+			border-left: 1px solid var(--color-dark-section);
+			padding-left: 20px;
+			margin-top: 40px;
+		}
+	}
+
+	&__image {
+		--object-pos: top;
+		min-height: adapt(300, 200);
+	}
+
+	&__image--1 {
+		@include media($mobile, min) {
+			width: 170%;
+		}
+	}
+
+	&__image--2 {
+	}
+}

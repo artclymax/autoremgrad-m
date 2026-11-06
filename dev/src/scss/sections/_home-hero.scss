@@ -87,6 +87,13 @@
 
 		@include media($mobile) {
 			@include text-label-mob;
+			
+			&.btn-link {
+				--url-icon: url('../../../public/images/icons/btn-arrow-dark.svg');
+				&::after {
+					@include square(14px);
+				}
+			}
 		}
 	}
 

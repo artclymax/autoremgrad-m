@@ -28,10 +28,13 @@
 		@include flex-column;
 		gap: 24px;
 	}
-
+	&__right {
+		@include flex-column;
+		gap: adapt(58, 33, $mobile);
+	}
 	&__features {
 		position: relative;
-		gap: 40px adapt(80, 20, $tablet);
+		gap: adapt(40, 24, $mobile) adapt(80, 20, $tablet);
 		--min: 300px;
 		@include media($mobile, min) {
 			padding-top: adapt(58, 24);
@@ -48,7 +51,8 @@
 	}
 
 	&__feature {
-		@include flex-column;
+		display: grid;
+		grid-template-rows: 1fr;
 		gap: 20px;
 		@include media($mobile) {
 			padding-top: 16px;
